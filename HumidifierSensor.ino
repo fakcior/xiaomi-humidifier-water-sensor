@@ -32,7 +32,7 @@ void loop()
   readingRaw = sensor.capacitiveSensorRaw(SAMPLES_NUMBER);
   
   if(readingRaw == -2) mappedValue = 125; // tank full, water touches both metal probes, capacitance measurement not possible
-  else mappedValue = constrain(map(readingRaw, MIN_READING, MAX_READING, 0, 125), 0, 125); //map sensor reading to humidifier water level range (0 - 125)
+  else mappedValue = constrain(map(readingRaw, MIN_READING, MAX_READING, 0, 120), 0, 120); //map sensor reading to humidifier water level range (0 - 120)
     
   packet[11] = mappedValue; //12th byte represents water level value
 
